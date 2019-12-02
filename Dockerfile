@@ -33,17 +33,17 @@ RUN apt-get -q update &&\
 
 # install gcc
 RUN apt-get -q update &&\
-    DEBIAN_FRONTEND="noninteractive" apt-get -q install -y gcc
+    DEBIAN_FRONTEND="noninteractive" apt-get -q install -y gcc &&\
     apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
 # install build essentials
 RUN apt-get -q update &&\
-    DEBIAN_FRONTEND="noninteractive" apt-get -q install -y build-essential
+    DEBIAN_FRONTEND="noninteractive" apt-get -q install -y build-essential &&\
     apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
 # install git
 RUN apt-get -q update &&\
-    DEBIAN_FRONTEND="noninteractive" apt-get -q install -y git
+    DEBIAN_FRONTEND="noninteractive" apt-get -q install -y git &&\
     apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 	
 # Set user jenkins to the image
