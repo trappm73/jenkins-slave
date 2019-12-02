@@ -10,7 +10,8 @@ MAINTAINER Markus Trapp
 # Preparations for sshd
 RUN apt-get -q update &&\
     apt-get install -y locales
-RUN locale-gen en_US.UTF-8 &&\
+RUN locale-gen de_DE.UTF-8 &&\
+    update-locale LANG=de_DE.UTF-8 &&\
     DEBIAN_FRONTEND="noninteractive" apt-get -q upgrade -y -o Dpkg::Options::="--force-confnew" --no-install-recommends &&\
     DEBIAN_FRONTEND="noninteractive" apt-get -q install -y -o Dpkg::Options::="--force-confnew" --no-install-recommends openssh-server &&\
     apt-get -q autoremove &&\
@@ -18,9 +19,9 @@ RUN locale-gen en_US.UTF-8 &&\
     sed -i 's|session    required     pam_loginuid.so|session    optional     pam_loginuid.so|g' /etc/pam.d/sshd &&\
     mkdir -p /var/run/sshd
 
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+ENV LANG de_DE.UTF-8
+ENV LANGUAGE de_DE:de
+ENV LC_ALL de_DE.UTF-8
 
 # Install JDK 8 (latest edition)
 RUN apt-get -q update &&\
