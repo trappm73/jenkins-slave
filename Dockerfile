@@ -2,7 +2,7 @@
 FROM ubuntu:latest
 MAINTAINER Markus Trapp
 
-# In case you need proxy
+# In case you need any proxy
 #RUN echo 'Acquire::http::Proxy "http://127.0.0.1:8080";' >> /etc/apt/apt.conf
 
 # Add locales after locale-gen as needed
